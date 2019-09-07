@@ -50,4 +50,22 @@
         <property name="characterEncoding" value="utf-8"/>
     </bean>
 
+    <!-- 拦截器的功能与servlet中的Filter是一样 -->
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <!--
+                /*   :  /login 可以拦截  /user/delete拦截不了  /user/add/234拦截不了
+                /**  :  /login /user/delete /user/add/1234  这三种情况都可以拦截器
+             -->
+            <mvc:mapping path="/**"/>
+            <!-- 当所有请求都需要走如下的这个bean, 会进入到preHandle方法中 -->
+            <bean class="com.qf.ssm.interceptor.LoginInterceptor"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
+
+    <!--
+        开启Aspectj的aop.
+     -->
+    <aop:aspectj-autoproxy/>
+
 </beans>

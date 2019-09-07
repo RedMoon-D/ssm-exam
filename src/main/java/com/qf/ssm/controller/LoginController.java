@@ -15,7 +15,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 @RestController
-@RequestMapping
 public class LoginController {
 
     @Resource

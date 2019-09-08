@@ -15,6 +15,7 @@ import java.util.List;
 @Transactional
 public class UserServiceImpl implements UserService {
     @Resource
+
     private UserDao userDao;
 
     @Override
